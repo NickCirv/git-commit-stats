@@ -1,0 +1,33 @@
+{
+  "name": "git-commit-stats",
+  "version": "1.0.0",
+  "description": "Rich git commit statistics — time heatmaps, streaks, author breakdown, file churn. Zero dependencies.",
+  "type": "module",
+  "bin": {
+    "git-commit-stats": "./index.js",
+    "gcs": "./index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "developer-tools",
+    "cli",
+    "nodejs",
+    "zero-dependencies",
+    "git",
+    "statistics",
+    "analytics",
+    "productivity",
+    "developer-metrics"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NickCirv/git-commit-stats.git"
+  },
+  "homepage": "https://github.com/NickCirv/git-commit-stats#readme",
+  "bugs": {
+    "url": "https://github.com/NickCirv/git-commit-stats/issues"
+  }
+}
