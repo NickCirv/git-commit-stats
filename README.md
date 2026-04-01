@@ -1,3 +1,5 @@
+![Banner](banner.svg)
+
 # git-commit-stats
 
 Rich git commit statistics — time heatmaps, streaks, author breakdown, file churn. **Zero external dependencies.**
