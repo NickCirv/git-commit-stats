@@ -1,57 +1,23 @@
-![Banner](banner.svg)
+<div align="center">
 
 # git-commit-stats
 
-Rich git commit statistics — time heatmaps, streaks, author breakdown, file churn. **Zero external dependencies.**
+**Rich git analytics in your terminal — heatmaps, streaks, author breakdown, file churn, and a GitHub-style contribution graph.**
 
-```
-git-commit-stats v1.0.0  —  Branch: main  Since: 2025-01-01
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue?labelColor=0B0A09)](LICENSE)
+[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen?labelColor=0B0A09)](package.json)
+[![Node](https://img.shields.io/badge/node-%3E%3D18-lightgrey?labelColor=0B0A09)](package.json)
 
-── Commit Frequency ──────────────────────────────────
-  Total commits:     142
-  Avg per day:       0.93
-  Most active day:   2025-03-14 (9 commits)
-  Current streak:    3 day(s)
-  Longest streak:    12 day(s)
-
-── Time-of-Day Heatmap ───────────────────────────────
-  00:00  ░░░░░░░░░░░░░░░░░░░░░░░░░     0
-  ...
-  19:00  █████████████████████████    41  ◀ peak
-  20:00  ████████████████████░░░░░    33
-  21:00  ████████████░░░░░░░░░░░░░    20
-  ...
-
-── Day-of-Week Heatmap ───────────────────────────────
-  Mon  ████░░░░░░░░░░░░░░░░░░░░░    12
-  Tue  ██████████░░░░░░░░░░░░░░░    29
-  ...
-  Sat  █████████████████████████    48
-
-── GitHub-Style Contribution Graph ────────────────────
-     ░ ▒ ▓ █ ▒   ░         ░ ▒ ▒   ▓█  ░
-Mon
-     ░   ▒   ░   ░         ░     ░  █▓
-Wed                 ░   ░   ░   ░   ▒ ░
-       ░   ░   ░   ░         ░   ░  █▒  ░
-Fri  ░   ░   ░   ░   ░   ░   ░   ░ ▒█  ▒
-       ░ ▒ ▒ ░ ▒ ▒ ▓ ▒ ▓ ▓ █ ▓ █ █████ ▒
-
-  Less   ░ ▒ ▓ █ More   (142 commits in 52 weeks)
-```
+</div>
 
 ## Install
 
 ```bash
-# Run directly with npx (no install needed)
-npx git-commit-stats
+# Run directly — no global install needed
+npx github:NickCirv/git-commit-stats
 
 # Or install globally
-npm install -g git-commit-stats
-
-# Aliases: both work
-git-commit-stats --help
-gcs --help
+npm install -g github:NickCirv/git-commit-stats
 ```
 
 ## Usage
@@ -60,32 +26,15 @@ gcs --help
 # Full report for current repo
 git-commit-stats
 
-# Filter by date
-git-commit-stats --since 2024-01-01
-git-commit-stats --since "6 months ago"
-
-# Filter by author
-git-commit-stats --author "Alice"
-
-# Specific branch
-git-commit-stats --branch main
-
-# Combine filters
-git-commit-stats --since "3 months ago" --author "Alice" --branch develop
-
-# Limit author/file lists
-git-commit-stats --top 5
+# Filter by author and date range
+git-commit-stats --since "3 months ago" --author "Alice"
 
 # GitHub-style contribution heatmap only
 git-commit-stats --format heatmap
 
-# JSON output (pipe to jq, save to file, etc.)
-git-commit-stats --format json
+# JSON output — pipe to jq or save to file
 git-commit-stats --format json | jq '.frequency.total'
-git-commit-stats --format json > stats.json
 ```
-
-## Options
 
 | Flag | Description | Default |
 |------|-------------|---------|
@@ -97,30 +46,9 @@ git-commit-stats --format json > stats.json
 | `--version`, `-v` | Print version | — |
 | `--help`, `-h` | Show help | — |
 
-## Stats Included
+## What it does
 
-| Section | Details |
-|---------|---------|
-| **Commit Frequency** | Total, avg per day, most active day, current streak, longest streak |
-| **Time-of-Day Heatmap** | ASCII bar chart for hours 0–23, peak hour highlighted |
-| **Day-of-Week Heatmap** | Mon–Sun bar chart |
-| **Top Authors** | Ranked by commit count with % share |
-| **File Churn** | Most frequently modified files (top N) |
-| **Commit Message Stats** | Avg length, longest message, most common words |
-| **Month-over-Month Trend** | Last 12 months bar chart with ▲/▼ trend arrows |
-| **Lines Changed** | Additions vs deletions with ratio |
-| **Contribution Graph** | GitHub-style 7×52 heatmap using `░▒▓█` blocks |
+Runs `git log` against the current repo and renders a full analytics report in the terminal. Output includes commit frequency and streaks, time-of-day and day-of-week heatmaps, a GitHub-style 7×52 contribution graph, top authors with percentage share, most-churned files, commit message word analysis, a 12-month trend chart, and lines-added vs lines-deleted. Use `--format json` to pipe the full dataset into other tools. Requires Node.js ≥ 18 and git in PATH, run from inside a git repository.
 
-## Requirements
-
-- Node.js >= 18
-- git installed and accessible in PATH
-- Run from inside a git repository
-
-## Zero Dependencies
-
-Built entirely on Node.js built-ins: `child_process`, `fs`. No npm install, no supply chain risk, no bloat.
-
-## License
-
-MIT © [NickCirv](https://github.com/NickCirv)
+---
+<sub>Zero dependencies · Node ≥18 · MIT · by <a href="https://github.com/NickCirv">NickCirv</a></sub>
